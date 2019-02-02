@@ -45,7 +45,7 @@ qual=read.csv("./Data/BarcodePlateStats.csv") #read in BarcodePlateStats .csv fi
 names(qual)
 qualtrue=subset(qual, Ok == "TRUE") #create subset of data with Ok = TRUE
 for(i in allab1s){
-  if(i %in% qualtrue$Chromatogram){
+  if(i %in% qualtrue$Chromatogram){ #exclude files with FALSE condition under "Ok"
     #ITS = read.abif(paste("./Data/DNA_Barcoding/",i, sep = ""))
     #ITSseq <- sangerseq(ITS) # Extract
     ITSseq = readsangerseq(paste("./Data/DNA_Barcoding/",i, sep = ""))
